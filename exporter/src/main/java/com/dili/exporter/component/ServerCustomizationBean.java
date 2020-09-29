@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
  * @author: WM
  * @time: 2020/9/24 10:03
  */
-@Component
+//@Component
 public class ServerCustomizationBean implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 
     @Override
     public void customize(ConfigurableServletWebServerFactory factory) {
-        factory.setPort(8081);
+        factory.setPort(8288);
     }
 }
