@@ -1,6 +1,7 @@
 package com.dili.exporter.component;
 
 import com.dili.exporter.consts.ExporterConsts;
+import com.dili.exporter.domain.ExportThread;
 import com.dili.ss.util.NetworkUtils;
 import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
@@ -48,8 +49,9 @@ public class ExporterListener implements ApplicationListener<WebServerInitialize
             }
             if(ExporterConsts.tokenCache.containsKey(data)){
                 log.info("["+NetworkUtils.getLocalIP()+":"+serverPort+"]处理导出token: " + data);
+                ExportThread exportThread = ExporterConsts.tokenCache.get(data);
                 ExporterConsts.tokenCache.remove(data);
-                LockSupport.unpark(ExporterConsts.tokenCache.get(data).getThread());
+                LockSupport.unpark(exportThread.getThread());
             }
         } catch (Exception ex) {
             log.error("消息 {} 处理失败 {}", message, ex);
