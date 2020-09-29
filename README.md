@@ -8,4 +8,6 @@ exporter.contextPath=http://exporter.diligrp.com:8288
 project.serverPath=http://uap.diligrp.com
 # 最大导出等待时间，超时则发消息清空所有导出器的token.默认半小时
 exporter.maxWait=1800000
+# 限制导出数，默认为4
+exporter.limit=4
 ```
