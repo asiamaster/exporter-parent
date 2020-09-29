@@ -48,7 +48,7 @@ public class ExporterListener implements ApplicationListener<WebServerInitialize
             }
             if(ExporterConsts.tokenCache.containsKey(data)){
                 log.info("["+NetworkUtils.getLocalIP()+":"+serverPort+"]处理导出token: " + data);
-                LockSupport.unpark(ExporterConsts.tokenCache.get(data));
+                LockSupport.unpark(ExporterConsts.tokenCache.get(data).getThread());
                 ExporterConsts.tokenCache.remove(data);
             }
         } catch (Exception ex) {

@@ -1,8 +1,9 @@
 package com.dili.exporter.consts;
 
-import java.util.ArrayList;
+import com.dili.exporter.domain.ExportThread;
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,9 +12,14 @@ import java.util.Map;
  * @author: WM
  * @time: 2020/9/28 16:02
  */
+
+@Component
 public class ExporterConsts {
+
     /**
      * 缓存导出中的token，和导出的线程
      */
-    public static final Map<String, Thread> tokenCache = new HashMap<>();
+    public static final Map<String, ExportThread> tokenCache = new HashMap<>();
+
+
 }
