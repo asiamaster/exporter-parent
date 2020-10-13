@@ -15,3 +15,17 @@ exporter.maxWait=1800000
 # 限制导出数，默认为4
 exporter.limit=4
 ```
+
+依赖包
+```xml
+<dependency>
+    <groupId>com.dili</groupId>
+    <artifactId>commons-web</artifactId>
+    <version>1.3.4-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>com.dili</groupId>
+    <artifactId>ss-beetl</artifactId>
+    <version>3.6.8-SNAPSHOT</version>
+</dependency>
+```
