@@ -116,7 +116,8 @@ public class ExporterController {
             exportUtils.export(request, response, buildExportParam(columns, queryParams, title, url, contentType));
             this.rabbitTemplate.convertAndSend(RabbitMQConfig.MQ_EXPORTER_TOPIC_EXCHANGE, RabbitMQConfig.MQ_EXPORTER_ROUTING_KEY, token);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
+            this.rabbitTemplate.convertAndSend(RabbitMQConfig.MQ_EXPORTER_TOPIC_EXCHANGE, RabbitMQConfig.MQ_EXPORTER_ROUTING_KEY, token);
         }
         return null;
     }
